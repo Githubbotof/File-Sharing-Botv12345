@@ -4,6 +4,18 @@ from pyrogram import __version__
 from bot import Bot
 from config import OWNER_ID
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
+from config import START_MSG 
+
+START_MSGE = "START_MSG"
+
+START_BUTTON = [
+                [
+                    InlineKeyboardButton("🧩 About 🧩", callback_data = "about"),
+                    InlineKeyboardButton("🍀 Close 🍀", callback_data = "close"),
+                ],[
+                    InlineKeyboardButton("🔅 GROUP 🔅", url = "https://t.me/+IUjmXAy5pVg1MDQ1") 
+                ]
+            ]
 
 @Bot.on_callback_query()
 async def cb_handler(client: Bot, query: CallbackQuery):
@@ -27,22 +39,8 @@ async def cb_handler(client: Bot, query: CallbackQuery):
             await query.message.reply_to_message.delete()
 
     elif CallbackQuery.data == "back"
-        CallbackQuery.edit_message_text(START_MSG.format(
-                first = message.from_user.first_name,
-                last = message.from_user.last_name,
-                username = None if not message.from_user.username else '@' + message.from_user.username,
-                mention = message.from_user.mention,
-                id = message.from_user.id
-            ),
-             reply_markup = InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton("🧩 About 🧩", callback_data = "about"),
-                    InlineKeyboardButton("🍀 Close 🍀", callback_data = "close"),
-                ],[
-                    InlineKeyboardButton("🔅 GROUP 🔅", url = "https://t.me/+IUjmXAy5pVg1MDQ1") 
-                ]
-            ]
-        ))
+        CallbackQuery.edit_message_text(
+            START_MSGE,
+            reply_markup = InlineKeyboardMarkup(START_BUTTON)
         except:
             pass
