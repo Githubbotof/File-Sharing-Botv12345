@@ -43,6 +43,6 @@ async def cb_handler(client: Bot, query: CallbackQuery):
                     InlineKeyboardButton("🔅 GROUP 🔅", url = "https://t.me/+IUjmXAy5pVg1MDQ1") 
                 ]
             ]
-        )
+        ))
         except:
             pass
