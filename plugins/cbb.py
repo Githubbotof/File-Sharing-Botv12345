@@ -42,5 +42,6 @@ async def cb_handler(client: Bot, query: CallbackQuery):
         CallbackQuery.edit_message_text(
             START_MSGE,
             reply_markup = InlineKeyboardMarkup(START_BUTTON)
+        )
         except:
             pass
