@@ -16,7 +16,7 @@ async def cb_handler(client: Bot, query: CallbackQuery):
                 [
                     [
                         InlineKeyboardButton("🔒 Close", callback_data = "close"),
-                        InlineKeyboardButton('👩‍🦯 Back', callback_data='start_command'),
+                        InlineKeyboardButton('👩‍🦯 Back', callback_data='back'),
                     ]
                 ]
             )
@@ -25,5 +25,8 @@ async def cb_handler(client: Bot, query: CallbackQuery):
         await query.message.delete()
         try:
             await query.message.reply_to_message.delete()
+
+    elif CallbackQuery.data == "back"
+        CallbackQuery.edit_message_text(
         except:
             pass
