@@ -37,5 +37,9 @@ async def cb_handler(client: Bot, query: CallbackQuery):
         await query.message.delete()
         try:
             await query.message.reply_to_message.delete()
+   elif data == "back":
+        await query.message.back()
+        try:
+            await query.message.reply_to_message.back()
         except:
             pass
